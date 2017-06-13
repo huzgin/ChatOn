@@ -54,8 +54,8 @@ public class sign_up extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			response.setContentType("text/html");
-			String un = request.getParameter("username");
-			String pass = request.getParameter("password");
+			String un = request.getParameter("email");
+			String pass = request.getParameter("pass");
 			PrintWriter out = response.getWriter();
 			
 			// Creating A String to Confirm Registration

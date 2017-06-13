@@ -13,17 +13,17 @@
 <body>
 <div class="container">
 <center><h2 class="form-signin-heading">Come Join The Group.</h2></center>
-<form class="form-horizontal" action="/action_page.php">
+<form class="form-horizontal" action="sign_up">
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Email:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="email"  name="email">
+        <input type="text" class="form-control" name="email">
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pass">Password:</label>
       <div class="col-sm-10">          
-        <input type="password" class="form-control" id="pass" name="pass">
+        <input type="password" class="form-control"name="pass">
       </div>
     </div>
     <div class="form-group">        
