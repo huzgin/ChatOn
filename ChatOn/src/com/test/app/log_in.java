@@ -28,7 +28,7 @@ public class log_in extends HttpServlet {
 	DataSource ds;
 	Connection con;
 	Statement stmt = null;
-	String Query = "select email,password from users;";
+	String Query = "select * from users";
 	String emails[]= new String [100];
 	String passes[]= new String [100];
 	int i=0;
@@ -57,29 +57,43 @@ public class log_in extends HttpServlet {
 		String mail = request.getParameter("email");
 		String pass = request.getParameter("pass");
 		PrintWriter out = response.getWriter();
-		
+		System.out.println("Reached dopost");
 		try
 		{
 			ctx = new InitialContext();
 			ds = (DataSource)ctx.lookup("jdbc/lib_db");
+			System.out.println("DataSource Created");
 			con = ds.getConnection();
+			System.out.println("Got Connection");
+			stmt=con.createStatement();
+			
 			ResultSet rs = stmt.executeQuery(Query);
+			System.out.println("Query run");
+			
 			while(rs.next())
 			{
+				System.out.println("In loop");
 				emails[i] = rs.getString("EMAIL");
 				passes[i] = rs.getString("PASSWORD");
+				System.out.println("Email: "+emails[i]+" Pass: "+passes);
 				i++;
 			}
-			
+			System.out.println("Out of loop");
 			len = emails.length;
 			
 			for(int j=0;j<len;j++)
 			{
+				out.println("Email: "+emails[i]+" Pass: "+passes);
 				if (emails[i].equals(mail) && passes[i].equals(pass))
 				{
 					out.println("Login successful");
 				}
+				else
+				{
+					out.println("Login failed");
+				}
 			}
+			
 		} 
 		catch (NamingException e) 
 		{

@@ -68,7 +68,7 @@ public class sign_up extends HttpServlet {
 			htmlBuilder.append("</head>");
 			htmlBuilder.append("<body>");
 			htmlBuilder.append(" <br> <br><center> <h1>Congrats! You're one of us now! </h1></center> ");
-			htmlBuilder.append("<center><input type='button' class='btn btn-lg' value='Go To Home' onclick='location.href = 'index.jsp';'></center>");
+			htmlBuilder.append("<center><a href='index.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
 			htmlBuilder.append("</body>");
 			htmlBuilder.append("</html>");
 			String html = htmlBuilder.toString();
@@ -81,9 +81,7 @@ public class sign_up extends HttpServlet {
 			ps = con.prepareStatement(Query);
 			ps.setString(1, mail);
 			ps.setString(2, pass);
-			System.out.println("Retval Called");
 			int retval = ps.executeUpdate();
-			System.out.println("Retval is:"+ retval);
 			if(retval == 1)
 			{
 				out.println(html);
