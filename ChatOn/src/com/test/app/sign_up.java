@@ -54,7 +54,7 @@ public class sign_up extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			response.setContentType("text/html");
-			String un = request.getParameter("email");
+			String mail = request.getParameter("email");
 			String pass = request.getParameter("pass");
 			PrintWriter out = response.getWriter();
 			
@@ -79,7 +79,7 @@ public class sign_up extends HttpServlet {
 			ds = (DataSource)ctx.lookup("jdbc/lib_db");
 			con = ds.getConnection();
 			ps = con.prepareStatement(Query);
-			ps.setString(1, un);
+			ps.setString(1, mail);
 			ps.setString(2, pass);
 			System.out.println("Retval Called");
 			int retval = ps.executeUpdate();
