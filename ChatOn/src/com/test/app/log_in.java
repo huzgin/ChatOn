@@ -76,7 +76,7 @@ public class log_in extends HttpServlet {
 			htmlBuilder.append("</head>");
 			htmlBuilder.append("<body>");
 			htmlBuilder.append(" <br> <br><center> <h1>Yaay! You're one of us! </h1></center> ");
-			htmlBuilder.append("<center><a href='index.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
+			htmlBuilder.append("<center><a href='chat_home.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
 			htmlBuilder.append("</body>");
 			htmlBuilder.append("</html>");
 			String html = htmlBuilder.toString();
