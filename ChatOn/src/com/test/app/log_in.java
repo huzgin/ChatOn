@@ -67,6 +67,20 @@ public class log_in extends HttpServlet {
 			System.out.println("Got Connection");
 			stmt=con.createStatement();
 			
+			StringBuilder htmlBuilder = new StringBuilder();
+			htmlBuilder.append("<html>");
+			htmlBuilder.append("<head>");
+			htmlBuilder.append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>");
+			htmlBuilder.append(" <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'> ");
+			htmlBuilder.append("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script>");
+			htmlBuilder.append("</head>");
+			htmlBuilder.append("<body>");
+			htmlBuilder.append(" <br> <br><center> <h1>Yaay! You're one of us! </h1></center> ");
+			htmlBuilder.append("<center><a href='index.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
+			htmlBuilder.append("</body>");
+			htmlBuilder.append("</html>");
+			String html = htmlBuilder.toString();
+			
 			ResultSet rs = stmt.executeQuery(Query);
 			System.out.println("Query run");
 			
@@ -75,25 +89,25 @@ public class log_in extends HttpServlet {
 				System.out.println("In loop");
 				emails[i] = rs.getString("EMAIL");
 				passes[i] = rs.getString("PASSWORD");
-				System.out.println("Email: "+emails[i]+" Pass: "+passes);
+				System.out.println("Email: "+emails[i]+" Pass: " + passes[i]);
 				i++;
 			}
 			System.out.println("Out of loop");
-			len = emails.length;
+			len = i-1;
+			System.out.println("length is :" + len);
 			
 			for(int j=0;j<len;j++)
 			{
-				out.println("Email: "+emails[i]+" Pass: "+passes);
-				if (emails[i].equals(mail) && passes[i].equals(pass))
+				System.out.println(j);
+				if(mail.toString().equals(emails[j]))	
 				{
-					out.println("Login successful");
+					if(pass.toString().equals(passes[j]))	
+					{
+						out.println(html);
+					}
 				}
-				else
-				{
-					out.println("Login failed");
-				}
+				
 			}
-			
 		} 
 		catch (NamingException e) 
 		{
