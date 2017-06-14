@@ -54,7 +54,7 @@ public class msg_send extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		StringBuilder htmlBuilder = new StringBuilder();
+		/* StringBuilder htmlBuilder = new StringBuilder();
 		htmlBuilder.append("<html>");
 		htmlBuilder.append("<head>");
 		htmlBuilder.append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>");
@@ -66,7 +66,7 @@ public class msg_send extends HttpServlet {
 		htmlBuilder.append("<center><a href='chat_home.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
 		htmlBuilder.append("</body>");
 		htmlBuilder.append("</html>");
-		String html = htmlBuilder.toString();
+		String html = htmlBuilder.toString(); */
 		
 		
 		response.setContentType("text/html");
@@ -75,7 +75,7 @@ public class msg_send extends HttpServlet {
 		{
 			request.getRequestDispatcher("chat_home.jsp").forward(request, response);
 		}
-		PrintWriter out = response.getWriter();
+		//PrintWriter out = response.getWriter();
 		
 		
 
@@ -103,7 +103,7 @@ public class msg_send extends HttpServlet {
 			int retval = ps.executeUpdate();
 			if(retval == 1)
 			{
-				out.println(html);
+				System.out.println("Message Delivered");
 			}
 			request.getRequestDispatcher("chat_home.jsp").forward(request, response);
 		} 
