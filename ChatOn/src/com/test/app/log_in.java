@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -54,8 +55,16 @@ public class log_in extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
+		//Values passed
 		String mail = request.getParameter("email");
 		String pass = request.getParameter("pass");
+		
+		Cookie mailcookie = new Cookie("email",mail);
+		
+		response.addCookie(mailcookie);
+
+		System.out.println("Cookies added");
+		
 		PrintWriter out = response.getWriter();
 		System.out.println("Reached dopost");
 		try
@@ -67,7 +76,7 @@ public class log_in extends HttpServlet {
 			//System.out.println("Got Connection");
 			stmt=con.createStatement();
 			
-			StringBuilder htmlBuilder = new StringBuilder();
+			/*StringBuilder htmlBuilder = new StringBuilder();
 			htmlBuilder.append("<html>");
 			htmlBuilder.append("<head>");
 			htmlBuilder.append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>");
@@ -79,7 +88,7 @@ public class log_in extends HttpServlet {
 			htmlBuilder.append("<center><a href='chat_home.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
 			htmlBuilder.append("</body>");
 			htmlBuilder.append("</html>");
-			String html = htmlBuilder.toString();
+			String html = htmlBuilder.toString(); */
 			
 			ResultSet rs = stmt.executeQuery(Query);
 			//System.out.println("Query run");
@@ -103,7 +112,8 @@ public class log_in extends HttpServlet {
 				{
 					if(pass.toString().equals(passes[j]))	
 					{
-						out.println(html);
+						//out.println(html);
+						request.getRequestDispatcher("chat_home.jsp").forward(request,response);
 					}
 				}
 				
