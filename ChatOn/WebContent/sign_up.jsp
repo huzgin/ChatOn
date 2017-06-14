@@ -11,6 +11,7 @@
 <title>Sign Up Page</title>
 </head>
 <body>
+
 <div class="container">
 <center><h2 class="form-signin-heading">Come Join The Group.</h2></center>
 <form class="form-horizontal" action="sign_up">
@@ -25,8 +26,6 @@
       <div class="col-sm-10">          
         <input type="password" class="form-control"name="pass">
       </div>
-    </div>
-    <div class="form-group">        
     </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">

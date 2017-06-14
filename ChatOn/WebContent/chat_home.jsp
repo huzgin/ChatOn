@@ -13,5 +13,18 @@
 </head>
 <body>
 
+<!-- Send msg box -->
+<div class="container">
+  <form class="form-inline" action="msg_send">
+    <div class="form-group col-sm">
+      <label for="email">Msg:</label>
+      <input type="text" class="form-control "  placeholder="Enter msg" name="email">
+    
+    <button type="submit" class="btn">Submit</button>
+    </div>
+  </form>
+</div>
+
+
 </body>
 </html>
