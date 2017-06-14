@@ -86,12 +86,9 @@ public class msg_send extends HttpServlet {
 		String email = null;
 		
 		Cookie c[] = request.getCookies();
-		for(Cookie c1: c)
-		{
-			email = c1.getName();
-		
+			email = c[0].getValue();
+
 			System.out.println(email);
-		}
 		
 		
 		try {
