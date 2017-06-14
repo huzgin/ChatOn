@@ -32,7 +32,7 @@ public class log_in extends HttpServlet {
 	String Query = "select * from users";
 	String emails[]= new String [100];
 	String passes[]= new String [100];
-	int i=0;
+	int i=0,j=0;
 	int len=0;
     /**
      * @see HttpServlet#HttpServlet()
@@ -76,7 +76,7 @@ public class log_in extends HttpServlet {
 			//System.out.println("Got Connection");
 			stmt=con.createStatement();
 			
-			/*StringBuilder htmlBuilder = new StringBuilder();
+			StringBuilder htmlBuilder = new StringBuilder();
 			htmlBuilder.append("<html>");
 			htmlBuilder.append("<head>");
 			htmlBuilder.append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>");
@@ -84,11 +84,11 @@ public class log_in extends HttpServlet {
 			htmlBuilder.append("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script>");
 			htmlBuilder.append("</head>");
 			htmlBuilder.append("<body>");
-			htmlBuilder.append(" <br> <br><center> <h1>Yaay! You're one of us! </h1></center> ");
-			htmlBuilder.append("<center><a href='chat_home.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
+			htmlBuilder.append(" <br> <br><center> <h3>Wrong Password! Click below to retry. </h3></center> ");
+			htmlBuilder.append("<center><a href='index.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
 			htmlBuilder.append("</body>");
 			htmlBuilder.append("</html>");
-			String html = htmlBuilder.toString(); edit*/
+			String html = htmlBuilder.toString();
 			
 			ResultSet rs = stmt.executeQuery(Query);
 			//System.out.println("Query run");
@@ -103,9 +103,8 @@ public class log_in extends HttpServlet {
 			}
 			//System.out.println("Out of loop");
 			len = i-1;
-			//System.out.println("length is :" + len);
-			int flag=1;
-			for(int j=0;j<len;j++)
+			//System.out.println("length is :" + len);S
+			for(j=0;j<len;j++)
 			{
 				//System.out.println(j);
 				if(mail.toString().equals(emails[j]))	
@@ -113,16 +112,15 @@ public class log_in extends HttpServlet {
 					if(pass.toString().equals(passes[j]))	
 					{
 						//out.println(html);
-						flag=0;
 						request.getRequestDispatcher("chat_home.jsp").forward(request,response);
 					}
 				}
 				
 			}
-			if(flag!=1)
+			if(j==len)
 			{
 			System.out.println("Going to index");
-			request.getRequestDispatcher("index.jsp").forward(request,response);
+			out.println(html);
 			}
 			
 		} 
