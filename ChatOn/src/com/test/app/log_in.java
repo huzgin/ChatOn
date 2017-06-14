@@ -88,7 +88,7 @@ public class log_in extends HttpServlet {
 			htmlBuilder.append("<center><a href='chat_home.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
 			htmlBuilder.append("</body>");
 			htmlBuilder.append("</html>");
-			String html = htmlBuilder.toString(); */
+			String html = htmlBuilder.toString(); edit*/
 			
 			ResultSet rs = stmt.executeQuery(Query);
 			//System.out.println("Query run");
