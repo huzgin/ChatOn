@@ -24,10 +24,11 @@
     <div class="form-group">
       <br>
       <label>Msg:</label>
-      <input type="text" class="form-control "   placeholder="Enter msg" name="email">
+      <input type="text" class="form-control " placeholder="Enter msg" name="msg">
     	<br>
   
     <button type="submit" class="btn">Submit</button>
+      <input type="button" class="btn " value="Exit" onclick="location.href = 'index.jsp';">
     </div>
   </form>
 </div>
