@@ -118,6 +118,10 @@ public class log_in extends HttpServlet {
 				}
 				
 			}
+			System.out.println("Going to index");
+			request.getRequestDispatcher("index.jsp").forward(request,response);
+			
+			
 		} 
 		catch (NamingException e) 
 		{
