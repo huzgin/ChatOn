@@ -13,7 +13,7 @@
 <body style="background-color:#D3D3D3;">
 <div class="container">
 <center><h2 class="form-signin-heading">Are you one of us?</h2></center>
-<form class="form-horizontal" action="log_in">
+<form class="form-horizontal" action="log_in" method = "post">
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Email:</label>
       <div class="col-sm-10">

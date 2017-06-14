@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -31,7 +33,14 @@ public class msg_send extends HttpServlet {
 	DataSource ds;
 	Connection con;
 	PreparedStatement ps;
+	Statement stmt = null;
 	String Query = "insert into chatdata values(?,?,?)";
+	String Query2 = "select * from Chatdata order by msgdate ASC";
+	
+	String[] sender1 = new String[1000];
+	String[] date1 = new String[1000];
+	String[] msg1 = new String[1000];
+	int i =0;
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -68,7 +77,7 @@ public class msg_send extends HttpServlet {
 		htmlBuilder.append("</html>");
 		String html = htmlBuilder.toString(); */
 		
-		
+		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		String msg = request.getParameter("msg");
 		if(msg==null)
@@ -97,6 +106,29 @@ public class msg_send extends HttpServlet {
 			ds = (DataSource)ctx.lookup("jdbc/lib_db");
 			con = ds.getConnection();
 			ps = con.prepareStatement(Query);
+			
+			stmt=con.createStatement();
+			ResultSet rs = stmt.executeQuery(Query2);
+			while(rs.next())
+			{
+				System.out.println("In loop 2");
+				sender1[i]=rs.getString("SENDER");
+				date1[i] =rs.getString("MSGDATE");
+				msg1[i] = rs.getString("MESSAGE");
+				i++;
+			}
+			int len = i-1;
+			
+			for(int j=0;j<len;j++)
+			{
+				out.println("Sender: "+sender1[j]+"on: "+date1[j]+"Msg: "+msg1[j]);
+			}
+			
+			
+			
+			
+			
+			
 			ps.setString(1, dateString);
 			ps.setString(2, msg);
 			ps.setString(3, email);

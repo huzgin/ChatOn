@@ -16,7 +16,7 @@
 <!-- Send msg box -->
 <div class="container" >
 
-  <form class="form-horizontal" action="msg_send">
+  <form class="form-horizontal" action="msg_send" method="post">
 <div class="form-group">
 	<h4>Group Chat </h4>
   <textarea class="form-control" rows="15" id="comment"></textarea>
