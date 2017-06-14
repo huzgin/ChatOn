@@ -61,7 +61,7 @@
 		
 		for(int j=0;j<len;j++)
 		{
-			out.println("Sender: "+sender1[j]+"on: "+date1[j]+"Msg: "+msg1[j]);
+			out.println("<hr> <p style='font-size:10px'>"+sender1[j]+" on: "+date1[j]+"</p><h4> Msg: "+msg1[j]+"</h4>");
 		}
 	} 
 	catch (NamingException e) 
