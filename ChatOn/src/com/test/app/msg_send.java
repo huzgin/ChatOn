@@ -83,14 +83,14 @@ public class msg_send extends HttpServlet {
 		Date date = new Date(); 
 		String dateString=newdate.format(date);
 		System.out.println(dateString);
+		String email = null;
 		
 		Cookie c[] = request.getCookies();
 		for(Cookie c1: c)
 		{
-			String email = c1.getName();
-			String pass = c1.getValue();
-			System.out.println(email +" "+ pass);
-			out.println(email +" "+ pass);
+			email = c1.getName();
+		
+			System.out.println(email);
 		}
 		
 		
@@ -102,7 +102,7 @@ public class msg_send extends HttpServlet {
 			ps = con.prepareStatement(Query);
 			ps.setString(1, dateString);
 			ps.setString(2, msg);
-			ps.setString(3,"Ayush");
+			ps.setString(3, email);
 			int retval = ps.executeUpdate();
 			if(retval == 1)
 			{
