@@ -105,7 +105,6 @@ public class msg_send extends HttpServlet {
 			System.out.println("Context Running");
 			ds = (DataSource)ctx.lookup("jdbc/lib_db");
 			con = ds.getConnection();
-			ps = con.prepareStatement(Query);
 			
 			stmt=con.createStatement();
 			ResultSet rs = stmt.executeQuery(Query2);
@@ -121,14 +120,10 @@ public class msg_send extends HttpServlet {
 			
 			for(int j=0;j<len;j++)
 			{
-				out.println("Sender: "+sender1[j]+"on: "+date1[j]+"Msg: "+msg1[j]);
+				System.out.println("Sender: "+sender1[j]+"on: "+date1[j]+"Msg: "+msg1[j]);
 			}
 			
-			
-			
-			
-			
-			
+			ps = con.prepareStatement(Query);
 			ps.setString(1, dateString);
 			ps.setString(2, msg);
 			ps.setString(3, email);

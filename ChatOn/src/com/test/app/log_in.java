@@ -104,7 +104,7 @@ public class log_in extends HttpServlet {
 			//System.out.println("Out of loop");
 			len = i-1;
 			//System.out.println("length is :" + len);
-			
+			int flag=1;
 			for(int j=0;j<len;j++)
 			{
 				//System.out.println(j);
@@ -113,14 +113,17 @@ public class log_in extends HttpServlet {
 					if(pass.toString().equals(passes[j]))	
 					{
 						//out.println(html);
+						flag=0;
 						request.getRequestDispatcher("chat_home.jsp").forward(request,response);
 					}
 				}
 				
 			}
+			if(flag!=1)
+			{
 			System.out.println("Going to index");
 			request.getRequestDispatcher("index.jsp").forward(request,response);
-			
+			}
 			
 		} 
 		catch (NamingException e) 
