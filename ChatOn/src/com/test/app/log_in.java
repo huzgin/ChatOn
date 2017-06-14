@@ -91,14 +91,13 @@ public class log_in extends HttpServlet {
 			String html = htmlBuilder.toString();
 			
 			ResultSet rs = stmt.executeQuery(Query);
-			//System.out.println("Query run");
-			//System.out.println(rs.next());
+			System.out.println("Query run");
+			System.out.println(rs.next());
 			while(rs.next())
 			{
-				System.out.println("In loop");
+				System.out.println("In loop1");
 				emails[i] = rs.getString("EMAIL");
 				passes[i] = rs.getString("PASSWORD");
-				//System.out.println("Email: "+emails[i]+" Pass: " + passes[i]);
 				i++;
 			}
 			//System.out.println("Out of loop");
@@ -106,12 +105,10 @@ public class log_in extends HttpServlet {
 			//System.out.println("length is :" + len);S
 			for(j=0;j<len;j++)
 			{
-				//System.out.println(j);
 				if(mail.toString().equals(emails[j]))	
 				{
 					if(pass.toString().equals(passes[j]))	
 					{
-						//out.println(html);
 						request.getRequestDispatcher("chat_home.jsp").forward(request,response);
 					}
 				}

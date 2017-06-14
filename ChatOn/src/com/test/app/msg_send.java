@@ -35,13 +35,13 @@ public class msg_send extends HttpServlet {
 	PreparedStatement ps;
 	Statement stmt = null;
 	String Query = "insert into chatdata values(?,?,?)";
-	String Query2 = "select * from Chatdata order by msgdate ASC";
+	/*String Query2 = "select * from Chatdata order by msgdate ASC";
 	
 	String[] sender1 = new String[1000];
 	String[] date1 = new String[1000];
 	String[] msg1 = new String[1000];
 	int i =0;
-	
+	*/
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -84,10 +84,9 @@ public class msg_send extends HttpServlet {
 		{
 			request.getRequestDispatcher("chat_home.jsp").forward(request, response);
 		}
+		else
+		{
 		//PrintWriter out = response.getWriter();
-		
-		
-
 		SimpleDateFormat newdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SS");
 		Date date = new Date(); 
 		String dateString=newdate.format(date);
@@ -106,7 +105,7 @@ public class msg_send extends HttpServlet {
 			ds = (DataSource)ctx.lookup("jdbc/lib_db");
 			con = ds.getConnection();
 			
-			stmt=con.createStatement();
+		/*	stmt=con.createStatement();
 			ResultSet rs = stmt.executeQuery(Query2);
 			while(rs.next())
 			{
@@ -116,13 +115,13 @@ public class msg_send extends HttpServlet {
 				msg1[i] = rs.getString("MESSAGE");
 				i++;
 			}
-			int len = i-1;
+			int len = i;
 			
 			for(int j=0;j<len;j++)
 			{
-				System.out.println("Sender: "+sender1[j]+"on: "+date1[j]+"Msg: "+msg1[j]);
+				out.println("Sender: "+sender1[j]+"on: "+date1[j]+"Msg: "+msg1[j]);
 			}
-			
+			*/
 			ps = con.prepareStatement(Query);
 			ps.setString(1, dateString);
 			ps.setString(2, msg);
@@ -143,6 +142,7 @@ public class msg_send extends HttpServlet {
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
 		}
 		
 	}
