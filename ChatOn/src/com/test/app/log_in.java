@@ -62,9 +62,9 @@ public class log_in extends HttpServlet {
 		{
 			ctx = new InitialContext();
 			ds = (DataSource)ctx.lookup("jdbc/lib_db");
-			System.out.println("DataSource Created");
+			//System.out.println("DataSource Created");
 			con = ds.getConnection();
-			System.out.println("Got Connection");
+			//System.out.println("Got Connection");
 			stmt=con.createStatement();
 			
 			StringBuilder htmlBuilder = new StringBuilder();
@@ -82,23 +82,23 @@ public class log_in extends HttpServlet {
 			String html = htmlBuilder.toString();
 			
 			ResultSet rs = stmt.executeQuery(Query);
-			System.out.println("Query run");
-			
+			//System.out.println("Query run");
+			//System.out.println(rs.next());
 			while(rs.next())
 			{
 				System.out.println("In loop");
 				emails[i] = rs.getString("EMAIL");
 				passes[i] = rs.getString("PASSWORD");
-				System.out.println("Email: "+emails[i]+" Pass: " + passes[i]);
+				//System.out.println("Email: "+emails[i]+" Pass: " + passes[i]);
 				i++;
 			}
-			System.out.println("Out of loop");
+			//System.out.println("Out of loop");
 			len = i-1;
-			System.out.println("length is :" + len);
+			//System.out.println("length is :" + len);
 			
 			for(int j=0;j<len;j++)
 			{
-				System.out.println(j);
+				//System.out.println(j);
 				if(mail.toString().equals(emails[j]))	
 				{
 					if(pass.toString().equals(passes[j]))	
