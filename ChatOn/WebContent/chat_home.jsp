@@ -58,11 +58,13 @@
 			i++;
 		}
 		int len = i;
-		
+		out.println("<div class='container'> <div class='table-responsive'> <table class='table'> <thead> <tr> <th>Sender</th> <th>Time</th> <th>Message</th></tr> </thead> <tbody>");
 		for(int j=0;j<len;j++)
 		{
-			out.println("<hr> <p style='font-size:10px'>"+sender1[j]+" on: "+date1[j]+"</p><h4> Msg: "+msg1[j]+"</h4>");
+			//out.println("<hr> <p style='font-size:10px'>"+sender1[j]+" on: "+date1[j]+"</p><h4> Msg: "+msg1[j]+"</h4>");
+			out.println("<tr> <td>"+sender1[j]+"</td><td>"+date1[j]+"</td><td>"+msg1[j]+"</td></tr>");
 		}
+		out.println("</tbody> </table> </div> </div>");
 	} 
 	catch (NamingException e) 
 	{
@@ -86,13 +88,11 @@
   
 </div>
     <div class="form-group">
-      <br>
       <label>Msg:</label>
       <input type="text" class="form-control " placeholder="Enter msg" name="msg">
     	<br>
-  
     <button type="submit" class="btn">Submit</button>
-      <input type="button" class="btn " value="Exit" onclick="location.href = 'index.jsp';">
+    <input type="button" class="btn " value="Exit" onclick="location.href = 'index.jsp';">
     </div>
   </form>
 </div>

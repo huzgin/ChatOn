@@ -100,15 +100,16 @@ public class log_in extends HttpServlet {
 				passes[i] = rs.getString("PASSWORD");
 				i++;
 			}
-			//System.out.println("Out of loop");
+			System.out.println("Out of loop");
 			len = i-1;
-			//System.out.println("length is :" + len);S
+			System.out.println("length is :" + len);
 			for(j=0;j<len;j++)
 			{
 				if(mail.toString().equals(emails[j]))	
 				{
 					if(pass.toString().equals(passes[j]))	
 					{
+						
 						request.getRequestDispatcher("chat_home.jsp").forward(request,response);
 					}
 				}
