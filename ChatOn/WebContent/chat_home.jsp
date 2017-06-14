@@ -11,15 +11,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Chat Page</title>
 </head>
-<body>
+<body style="background-color:#D3D3D3;">
 
 <!-- Send msg box -->
-<div class="container">
-  <form class="form-inline" action="msg_send">
-    <div class="form-group col-sm">
-      <label for="email">Msg:</label>
-      <input type="text" class="form-control "  placeholder="Enter msg" name="email">
-    
+<div class="container" >
+
+  <form class="form-horizontal" action="msg_send">
+<div class="form-group">
+	<h4>Group Chat </h4>
+  <textarea class="form-control" rows="15" id="comment"></textarea>
+</div>
+    <div class="form-group">
+      <br>
+      <label>Msg:</label>
+      <input type="text" class="form-control "   placeholder="Enter msg" name="email">
+    	<br>
+  
     <button type="submit" class="btn">Submit</button>
     </div>
   </form>

@@ -10,7 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Log In</title>
 </head>
-<body>
+<body style="background-color:#D3D3D3;">
 <div class="container">
 <center><h2 class="form-signin-heading">Are you one of us?</h2></center>
 <form class="form-horizontal" action="log_in">

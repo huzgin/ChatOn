@@ -10,9 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sign Up Page</title>
 </head>
-<body>
+<body style="background-color:#D3D3D3;">
 
-<div class="container">
+<div class="container" >
 <center><h2 class="form-signin-heading">Come Join The Group.</h2></center>
 <form class="form-horizontal" action="sign_up">
     <div class="form-group">
