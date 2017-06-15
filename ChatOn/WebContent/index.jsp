@@ -11,18 +11,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Welcome</title>
 </head>
-<body style="background-color:#D3D3D3;">
-
+<body style="background-color:#DD93FF;">
 <div class="container">
 <center><h2 class="form-signin-heading">Welcome to ChatOn.</h2></center>
-<center> Click Below To Log In: </center>
-<br>
+<center><h3> Click Below To Log In: </h3> </center>
 <center><input type="button" class="btn btn-lg " value="Log In" onclick="location.href = 'log_in.jsp';"></center>
-<br>
-<center> New here? Click Below to Sign Up: </center>
+<center><h3> New here? Click Below to Sign Up: </h3></center>
 <br>
 <center><input type="button" class="btn btn-lg " value="Sign Up" onclick="location.href = 'sign_up.jsp';"></center>
 </div>
-
 </body>
 </html>

@@ -100,9 +100,9 @@ public class log_in extends HttpServlet {
 				passes[i] = rs.getString("PASSWORD");
 				i++;
 			}
-			System.out.println("Out of loop");
+			System.out.println("Out of loop1");
 			len = i-1;
-			System.out.println("length is :" + len);
+			System.out.println("length is :" + len + "i is: " +i);
 			for(j=0;j<len;j++)
 			{
 				if(mail.toString().equals(emails[j]))	
