@@ -29,7 +29,7 @@ public class log_in extends HttpServlet {
 	DataSource ds;
 	Connection con;
 	Statement stmt = null;
-	String Query = "select * from users";
+	String Query = "select * from users order by EMAIL ASC";
 	String emails[]= new String [100];
 	String passes[]= new String [100];
 	int i=0,j=0;
@@ -98,13 +98,16 @@ public class log_in extends HttpServlet {
 				System.out.println("In loop1");
 				emails[i] = rs.getString("EMAIL");
 				passes[i] = rs.getString("PASSWORD");
+				System.out.println("Emails:  "+emails[i]+" Pass:"+ passes[i]);
 				i++;
 			}
 			System.out.println("Out of loop1");
-			len = i-1;
+			len = i;
+			i=0;
 			System.out.println("length is :" + len + "i is: " +i);
 			for(j=0;j<len;j++)
 			{
+				
 				if(mail.toString().equals(emails[j]))	
 				{
 					if(pass.toString().equals(passes[j]))	
