@@ -58,17 +58,14 @@
 	String[] date1 = new String[1000];
 	String[] msg1 = new String[1000];
 	int i =0;
-	
 	try {
 		ctx = new InitialContext();
-		System.out.println("Context Running");
 		ds = (DataSource)ctx.lookup("jdbc/lib_db");
 		con = ds.getConnection();
 		
 		
 		String cemail = null;
-		Cookie c[] = request.getCookies();
-		cemail = c[0].getValue();
+		
 		stmt=con.createStatement();
 		ResultSet rs = stmt.executeQuery(Query2);
 		while(rs.next())

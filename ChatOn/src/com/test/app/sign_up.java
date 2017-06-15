@@ -75,7 +75,7 @@ public class sign_up extends HttpServlet {
 					htmlBuilder.append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>");
 					htmlBuilder.append(" <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'> ");
 					htmlBuilder.append("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script>");
-					htmlBuilder.append("<style> .button {color: white;} .round { border-radius: 0px 20px;} .round2 { border-radius: 0px 50px;} .collight{background-color:#26C281;} .coldark{background-color:#006442;} </style>");
+					htmlBuilder.append("<style> .button {color: white;} .round { border-radius: 0px 20px;} .round2 { border-radius: 0px 50px;} .collight{background-color:#48CFAD;} .coldark{background-color:#37BC9B;} </style>");
 					htmlBuilder.append("</head>");
 					htmlBuilder.append("<body class='coldark'><div class='container round collight'>");
 					htmlBuilder.append(" <br> <br><center> <h1>Congrats! You're one of us now! </h1></center> ");

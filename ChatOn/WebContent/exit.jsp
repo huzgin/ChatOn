@@ -18,11 +18,6 @@
 <title>Bye :(</title>
 </head>
 <body class="collight" >
-<%
-		String cemail = null;
-		Cookie c[] = request.getCookies();
-		c[0].setMaxAge(0);
-%>
 <div class="row round coldark" >
 <br>
 <br>

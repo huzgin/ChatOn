@@ -60,22 +60,6 @@ public class msg_send extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		/* StringBuilder htmlBuilder = new StringBuilder();
-		htmlBuilder.append("<html>");
-		htmlBuilder.append("<head>");
-		htmlBuilder.append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>");
-		htmlBuilder.append(" <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'> ");
-		htmlBuilder.append("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script>");
-		htmlBuilder.append("</head>");
-		htmlBuilder.append("<body>");
-		htmlBuilder.append(" <br> <br><center> <h1>Msg Sent</h1></center> ");
-		htmlBuilder.append("<center><a href='chat_home.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
-		htmlBuilder.append("</body>");
-		htmlBuilder.append("</html>");
-		String html = htmlBuilder.toString(); */
-		
-		//PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		String msg = request.getParameter("msg");
 		if(msg==null)
@@ -93,33 +77,12 @@ public class msg_send extends HttpServlet {
 		
 		Cookie c[] = request.getCookies();
 			email = c[0].getValue();
-
-			//System.out.println(email);
-		
 		
 		try {
 			ctx = new InitialContext();
 			//System.out.println("Context Running");
 			ds = (DataSource)ctx.lookup("jdbc/lib_db");
 			con = ds.getConnection();
-			
-		/*	stmt=con.createStatement();
-			ResultSet rs = stmt.executeQuery(Query2);
-			while(rs.next())
-			{
-				System.out.println("In loop 2");
-				sender1[i]=rs.getString("SENDER");
-				date1[i] =rs.getString("MSGDATE");
-				msg1[i] = rs.getString("MESSAGE");
-				i++;
-			}
-			int len = i;
-			
-			for(int j=0;j<len;j++)
-			{
-				out.println("Sender: "+sender1[j]+"on: "+date1[j]+"Msg: "+msg1[j]);
-			}
-			*/
 			ps = con.prepareStatement(Query);
 			ps.setString(1, dateString);
 			ps.setString(2, msg);
@@ -127,7 +90,7 @@ public class msg_send extends HttpServlet {
 			int retval = ps.executeUpdate();
 			if(retval == 1)
 			{
-				//System.out.println("Message Delivered");
+				
 				request.getRequestDispatcher("chat_home.jsp").forward(request, response);
 			}
 			
