@@ -57,6 +57,27 @@ public class sign_up extends HttpServlet {
 			String mail = request.getParameter("email");
 			String pass = request.getParameter("pass");
 			PrintWriter out = response.getWriter();
+			StringBuilder htmlBuilder2 = new StringBuilder();
+			htmlBuilder2.append("<html>");
+			htmlBuilder2.append("<head>");
+			htmlBuilder2.append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>");
+			htmlBuilder2.append(" <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'> ");
+			htmlBuilder2.append("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script>");
+			htmlBuilder2.append("<style> .button {color: white;} .round { border-radius: 0px 20px;} .round2 { border-radius: 0px 50px;} .collight{background-color:#26C281;} .coldark{background-color:#006442;} </style>");
+			htmlBuilder2.append("</head>");
+			htmlBuilder2.append("<body class='coldark'><div class='container round collight'>");
+			htmlBuilder2.append(" <br> <br><center> <h2>Don't leave this blank! Enter a value. Go back and do this again </h2></center> ");
+			htmlBuilder2.append("<center><a href='index.jsp' class='btn btn-lg button'><h1>Home</h1></a></center>");
+			htmlBuilder2.append("</div></body>");
+			htmlBuilder2.append("</html>");
+			String html2 = htmlBuilder2.toString();
+			
+			if(mail.equals(null) || pass.equals(null))
+			{
+				out.println(html2);
+			}
+			else
+			{
 			
 			// Creating A String to Confirm Registration
 			StringBuilder htmlBuilder = new StringBuilder();
@@ -65,11 +86,12 @@ public class sign_up extends HttpServlet {
 			htmlBuilder.append("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>");
 			htmlBuilder.append(" <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css' integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp' crossorigin='anonymous'> ");
 			htmlBuilder.append("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js' integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa' crossorigin='anonymous'></script>");
+			htmlBuilder.append("<style> .button {color: white;} .round { border-radius: 0px 20px;} .round2 { border-radius: 0px 50px;} .collight{background-color:#26C281;} .coldark{background-color:#006442;} </style>");
 			htmlBuilder.append("</head>");
-			htmlBuilder.append("<body>");
+			htmlBuilder.append("<body class='coldark'><div class='container round collight'>");
 			htmlBuilder.append(" <br> <br><center> <h1>Congrats! You're one of us now! </h1></center> ");
-			htmlBuilder.append("<center><a href='index.jsp' class='btn btn-lg'><h1>Home</h1></a></center>");
-			htmlBuilder.append("</body>");
+			htmlBuilder.append("<center><a href='index.jsp' class='btn btn-lg button'><h1>Home</h1></a></center>");
+			htmlBuilder.append("</div></body>");
 			htmlBuilder.append("</html>");
 			String html = htmlBuilder.toString();
 			// End Of confirmation String
@@ -86,6 +108,7 @@ public class sign_up extends HttpServlet {
 			{
 				out.println(html);
 			}
+			}
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,6 +116,7 @@ public class sign_up extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 }
