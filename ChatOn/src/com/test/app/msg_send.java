@@ -1,10 +1,8 @@
 package com.test.app;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
@@ -77,7 +75,7 @@ public class msg_send extends HttpServlet {
 		htmlBuilder.append("</html>");
 		String html = htmlBuilder.toString(); */
 		
-		PrintWriter out = response.getWriter();
+		//PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
 		String msg = request.getParameter("msg");
 		if(msg==null)
@@ -90,18 +88,18 @@ public class msg_send extends HttpServlet {
 		SimpleDateFormat newdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SS");
 		Date date = new Date(); 
 		String dateString=newdate.format(date);
-		System.out.println(dateString);
+		//System.out.println(dateString);
 		String email = null;
 		
 		Cookie c[] = request.getCookies();
 			email = c[0].getValue();
 
-			System.out.println(email);
+			//System.out.println(email);
 		
 		
 		try {
 			ctx = new InitialContext();
-			System.out.println("Context Running");
+			//System.out.println("Context Running");
 			ds = (DataSource)ctx.lookup("jdbc/lib_db");
 			con = ds.getConnection();
 			
@@ -129,9 +127,10 @@ public class msg_send extends HttpServlet {
 			int retval = ps.executeUpdate();
 			if(retval == 1)
 			{
-				System.out.println("Message Delivered");
+				//System.out.println("Message Delivered");
+				request.getRequestDispatcher("chat_home.jsp").forward(request, response);
 			}
-			request.getRequestDispatcher("chat_home.jsp").forward(request, response);
+			
 		} 
 		catch (NamingException e) 
 		{

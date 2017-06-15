@@ -9,8 +9,8 @@
 .button {color: white;}
 .round { border-radius: 0px 20px;}
 .round2 { border-radius: 0px 50px;}
-.collight{background-color:#26C281;}
-.coldark{background-color:#006442;}
+.collight{background-color:#48CFAD;}
+.coldark{background-color:  #37BC9B;}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sign Up Page</title>
@@ -20,7 +20,7 @@
 <br>
 <div class="container collight round2"  >
 <center><h1 class="form-signin-heading">Come Join The Group.</h1></center>
-<form class="form-horizontal" action="sign_up">
+<form class="form-horizontal" action="sign_up" method="post">
     <br>
     <div class="form-group">
       <label class="control-label col-sm-2" for="email">Email:</label>

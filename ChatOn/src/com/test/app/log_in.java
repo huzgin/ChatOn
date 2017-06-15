@@ -60,13 +60,12 @@ public class log_in extends HttpServlet {
 		String pass = request.getParameter("pass");
 		
 		Cookie mailcookie = new Cookie("email",mail);
-		
 		response.addCookie(mailcookie);
 
-		System.out.println("Cookies added");
+		//System.out.println("Cookies added");
 		
 		PrintWriter out = response.getWriter();
-		System.out.println("Reached dopost");
+		//System.out.println("Reached dopost");
 		try
 		{
 			ctx = new InitialContext();
@@ -91,26 +90,26 @@ public class log_in extends HttpServlet {
 			String html = htmlBuilder.toString();
 			
 			ResultSet rs = stmt.executeQuery(Query);
-			System.out.println("Query run");
-			System.out.println(rs.next());
+			//System.out.println("Query run");
+			//System.out.println(rs.next());
 			while(rs.next())
 			{
-				System.out.println("In loop1");
+				//System.out.println("In loop1");
 				emails[i] = rs.getString("EMAIL");
 				passes[i] = rs.getString("PASSWORD");
-				System.out.println("Emails:  "+emails[i]+" Pass:"+ passes[i]);
+				//System.out.println("Emails:  "+emails[i]+" Pass:"+ passes[i]);
 				i++;
 			}
-			System.out.println("Out of loop1");
+			//System.out.println("Out of loop1");
 			len = i;
 			i=0;
-			System.out.println("length is :" + len + "i is: " +i);
+			//System.out.println("length is :" + len + "i is: " +i);
 			for(j=0;j<len;j++)
 			{
 				
-				if(mail.toString().equals(emails[j]))	
+				if(mail.toString().equalsIgnoreCase(emails[j]))	
 				{
-					if(pass.toString().equals(passes[j]))	
+					if(pass.toString().equalsIgnoreCase(passes[j]))	
 					{
 						
 						request.getRequestDispatcher("chat_home.jsp").forward(request,response);
@@ -120,10 +119,13 @@ public class log_in extends HttpServlet {
 			}
 			if(j==len)
 			{
-			System.out.println("Going to index");
+			//System.out.println("Going to index");
 			out.println(html);
 			}
-			
+			rs.close();
+			stmt.close();
+			con.close();
+			ctx.close();
 		} 
 		catch (NamingException e) 
 		{

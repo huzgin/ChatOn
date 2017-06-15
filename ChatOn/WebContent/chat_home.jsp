@@ -11,8 +11,8 @@
 .button {color: white;}
 .round { border-radius: 0px 20px;}
 .round2 { border-radius: 0px 50px;}
-.collight{background-color:#26C281;}
-.coldark{background-color:#006442;}
+.collight{background-color:#48CFAD;}
+.coldark{background-color:  #37BC9B;}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Chat Page</title>
@@ -42,7 +42,7 @@
       <input type="text" class="form-control" placeholder="Enter msg" name="msg">
     	<br>
     <button type="submit" class="btn">Submit</button>
-    <input type="button" class="btn " value="Exit" onclick="location.href = 'index.jsp';">
+    <input type="button" class="btn " value="Exit" onclick="location.href = 'exit.jsp';">
     </div>
     </div>
   </form>
@@ -65,11 +65,15 @@
 		ds = (DataSource)ctx.lookup("jdbc/lib_db");
 		con = ds.getConnection();
 		
+		
+		String cemail = null;
+		Cookie c[] = request.getCookies();
+		cemail = c[0].getValue();
 		stmt=con.createStatement();
 		ResultSet rs = stmt.executeQuery(Query2);
 		while(rs.next())
 		{
-			System.out.println("In loop 2");
+			
 			sender1[i]=rs.getString("SENDER");
 			date1[i] =rs.getString("MSGDATE");
 			msg1[i] = rs.getString("MESSAGE");
