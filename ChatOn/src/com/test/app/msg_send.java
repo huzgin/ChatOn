@@ -62,12 +62,6 @@ public class msg_send extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		String msg = request.getParameter("msg");
-		if(msg==null)
-		{
-			request.getRequestDispatcher("chat_home.jsp").forward(request, response);
-		}
-		else
-		{
 		//PrintWriter out = response.getWriter();
 		SimpleDateFormat newdate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SS");
 		Date date = new Date(); 
@@ -103,10 +97,8 @@ public class msg_send extends HttpServlet {
 		catch (SQLException e) 
 		{
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			request.getRequestDispatcher("chat_home.jsp").forward(request, response);
 		}
 		}
 		
 	}
-
-}

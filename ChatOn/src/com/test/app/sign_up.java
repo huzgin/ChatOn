@@ -66,7 +66,7 @@ public class sign_up extends HttpServlet {
 		htmlBuilder2.append("</div></body>");
 		htmlBuilder2.append("</html>");
 		String html2 = htmlBuilder2.toString();
-		
+		PrintWriter out = response.getWriter();
 		
 		// Creating A String to Confirm Registration
 					StringBuilder htmlBuilder = new StringBuilder();
@@ -88,15 +88,9 @@ public class sign_up extends HttpServlet {
 			response.setContentType("text/html");
 			String mail = request.getParameter("email");
 			String pass = request.getParameter("pass");
-			System.out.println("Email is:"+mail+" pass is: "+ pass);
-			PrintWriter out = response.getWriter();
-			if(mail==null || pass == null)
-			{
-				out.println(html2);
-			}
-			else
-			{
-
+			//System.out.println("Email is:"+mail+" pass is: "+ pass);
+			
+			
 			ctx = new InitialContext();
 			//System.out.println("Context Running");
 			ds = (DataSource)ctx.lookup("jdbc/lib_db");
@@ -113,13 +107,12 @@ public class sign_up extends HttpServlet {
 			ps.close();
 			con.close();
 			ctx.close();
-			}
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (SQLException e) 
+		{
+			out.println(html2);
 		}
 		
 	}
